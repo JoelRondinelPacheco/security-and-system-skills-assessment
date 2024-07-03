@@ -1,18 +1,9 @@
 'use client'
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { Email } from '@/lib/mail/domain/mail'
 import { sendEmail } from '@/lib/actions'
 import { useFormStatus, useFormState } from 'react-dom'
-export type res = {
-    name: string,
-    email: string,
-    message: string
-}
-const initialState: res = {
-    name: "",
-    email: "",
-    message: ""
-}
+
 
 const SubmitButton = () => {
     const { pending } = useFormStatus();
@@ -28,26 +19,41 @@ const SubmitButton = () => {
     )
 }
 
+const email: Email = {
+    fromName: "",
+    fromEmail: "",
+    subject: ""
+
+}
+
 const ContactForm = () => {
+    const [formData, setFormData] = useState<Email>(email);
+    const form = useRef<HTMLFormElement | null>(null);
 
-    const [state, formAction] = useFormState(sendEmail, initialState);
+    const [state, formAction] = useFormState(sendEmail, email);
 
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        if (form.current) {
+        formAction(new FormData(form.current))
+        }
+    }
 
   return (
     <section>
-        {state.message !== "" && state.message }
-        <form action={formAction}>
+        <form onSubmit={handleSubmit} ref={form}>
             <input type="text" name='name' />
             {
-                state.name !== "" && <span>{state.name}</span>
+                state.fromName !== "" && <span>{state.fromName}</span>
             }
             <input type="text" name='email' />
             {
-                state.email !== "" && <span>{state.email}</span>
+                state.fromEmail !== "" && <span>{state.fromEmail}</span>
             }
             <input type="text" name='message' />
             {
-                state.message !== "" && <span>{state.message}</span>
+                state.subject !== "" && <span>{state.subject}</span>
             }
             {
                 SubmitButton()    

@@ -1,9 +1,8 @@
 'use server';
 
-import { res } from "@/app/components/contact-form/contact-form";
 import { Email } from "./mail/domain/mail";
 
-export const sendEmail = async (prevState: res, email: FormData) => {
+export const sendEmail = async (prevState: Email, email: FormData) => {
     const formData = {
         /*
         fromName: email.fromName,
@@ -13,12 +12,13 @@ export const sendEmail = async (prevState: res, email: FormData) => {
         fromEmail: email.get('email'),
         subject: email.get('message')
     };
+    console.log("recibio");
 
     console.log(formData);
 
     return Promise.resolve({
-        name: "Error name asdasd",
-        email: "Error email0",
-        message: "Error message"
+        fromName: "Error name asdasd",
+        fromEmail: "Error email0",
+        subject: "Error message"
     })
 }
