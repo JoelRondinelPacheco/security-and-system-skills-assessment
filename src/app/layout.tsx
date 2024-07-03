@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from './components/header/header'
 import Footer from './components/footer/footer'
+import ThemeContextProvider from '@/context/theme.context'
+import ThemeWrapper from '@/context/theme-wrapper'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,9 +21,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />  
-          {children}
-        <Footer />
+        <ThemeContextProvider>
+          <ThemeWrapper>
+            <Header />  
+            {children}
+            <Footer />
+          </ThemeWrapper>
+        </ThemeContextProvider>
       </body>
     </html>
   )
