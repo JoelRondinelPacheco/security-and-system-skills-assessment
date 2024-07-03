@@ -1,0 +1,9 @@
+.wrapper {
+    display: flex;
+}
+.imageWrapper {
+    width: 150px;
+    height: 150px;
+    background-color: rgb(141, 82, 82);
+    border-radius: 50%;
+}
