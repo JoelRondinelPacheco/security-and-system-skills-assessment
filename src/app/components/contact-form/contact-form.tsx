@@ -39,17 +39,17 @@ const ContactForm = () => {
     
     if (form.current) {
         //validate form structure
-        let f = new FormData(form.current);
+        let formData = new FormData(form.current);
         let data: Email = {
-            fromEmail: f.get("fromEmail")?.toString() || "",
-            fromName: f.get("fromName")?.toString() || "",
-            subject: f.get("subject")?.toString() || ""
+            fromEmail: formData.get("fromEmail")?.toString() || "",
+            fromName: formData.get("fromName")?.toString() || "",
+            subject: formData.get("subject")?.toString() || ""
         }
 
         validate(emailValidations, data);
 
         if (Object.keys(errors).length === 0) {
-            formAction(f)
+            formAction(formData)
         }
   };
 }
