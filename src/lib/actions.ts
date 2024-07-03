@@ -2,7 +2,7 @@
 
 import { Email } from "./mail/domain/mail";
 
-export const sendEmail = async (prevState: Email, email: FormData) => {
+export const sendEmail = async (prevState: Partial<Record<keyof Email, string>>, email: FormData) => {
     const formData = {
         /*
         fromName: email.fromName,
