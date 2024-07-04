@@ -10,8 +10,8 @@ const InterestCard = ({ title, description }: Interest) => {
 
       </div>
       <div>
-      <h3>{title}</h3>
-        <p>
+      <h3 className={styles.cardTitle}>{title}</h3>
+        <p className={styles.cardDescription}>
           {description}
         </p>
         </div>

@@ -26,10 +26,12 @@
 
 .title {
     padding-bottom: calc(var(--spacing-base));
+    font-size: var(--fs-lg);
 }
 
 .details {
     padding-bottom: calc(var(--spacing-base)*2);
+    font-size: var(--fs-md);
 }
 
 .buttonWrapper {

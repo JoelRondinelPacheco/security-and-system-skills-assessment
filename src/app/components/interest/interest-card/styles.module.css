@@ -13,3 +13,11 @@
     background-color: rgb(202, 57, 57);
     align-self: self-end;
 }
+
+
+.cardTitle {
+    font-size: var(--fs-md);
+}
+.cardDescription {
+    font-size: var(--fs-base);
+}

@@ -1,0 +1,11 @@
+.button {
+    background: transparent;
+    outline: none;
+    border: 2px solid white;
+    padding: calc(var(--spacing-base)*2);
+    font-size: var(--fs-base);
+}
+
+.button:hover {
+    cursor: pointer
+}

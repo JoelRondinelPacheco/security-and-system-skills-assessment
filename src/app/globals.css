@@ -6,13 +6,13 @@
   --max-width: 500px;
 
   /*Font sizes*/
-  --fs-sm: clamp(0.8rem, 0.17vi + 0.76rem, 0.89rem);
---fs-base: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
---fs-md: clamp(1.25rem, 0.61vi + 1.1rem, 1.58rem);
---fs-lg: clamp(1.56rem, 1vi + 1.31rem, 2.11rem);
---fs-xl: clamp(1.95rem, 1.56vi + 1.56rem, 2.81rem);
---fs-xxl: clamp(2.44rem, 2.38vi + 1.85rem, 3.75rem);
---fs-xxxl: clamp(3.05rem, 3.54vi + 2.17rem, 5rem);
+  --fs-sm: clamp(0.91rem, 0.15vi + 0.87rem, 0.99rem);
+  --fs-base: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
+  --fs-md: clamp(1.1rem, 0.59vi + 0.95rem, 1.43rem);
+  --fs-lg: clamp(1.21rem, 0.91vi + 0.98rem, 1.71rem);
+  --fs-xl: clamp(1.33rem, 1.31vi + 1rem, 2.05rem);
+  --fs-xxl: clamp(1.46rem, 1.82vi + 1.01rem, 2.46rem);
+  --fs-xxxl: clamp(1.61rem, 2.44vi + 1rem, 2.95rem);
 }
 
 * {

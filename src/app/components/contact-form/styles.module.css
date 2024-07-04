@@ -28,6 +28,7 @@
     border: 2px solid white;
     outline: none;
     border-radius: 0;
+    font-size: var(--fs-base);
     /*
     font size ?
     color?
@@ -37,6 +38,10 @@
 
 .inputItem::placeholder {
     color: rgb(197, 197, 197);
+}
+
+.inputLabel {
+    font-size: var(--fs-base);
 }
 
 .textAreaItem {
@@ -49,6 +54,7 @@
 .errorField {
     /*TODO DEFINE REDIN GLOBAL CSS -> DESTRUCTIVE*/
     color: rgb(255, 98, 98);
+    font-size: var(--fs-sm);
 }
 .borderColorError {
     border-color:  rgb(255, 98, 98);

@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./styles.module.css";
+import Button from "../button/button";
 
 const AboutMe = () => {
   return (
@@ -15,7 +16,9 @@ const AboutMe = () => {
             </p>
           </div>
           <div className={styles.buttonWrapper}>
-            <button>Call to action</button>
+            <Button>
+              <p>Base</p>
+            </Button>
           </div>
         </div>
       </div>
