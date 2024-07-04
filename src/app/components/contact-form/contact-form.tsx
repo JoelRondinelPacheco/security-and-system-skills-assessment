@@ -1,5 +1,6 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
+import { GeistSans } from 'geist/font/sans';
 import {
   Email,
 } from "@/lib/mail/domain/mail";
@@ -67,7 +68,7 @@ const ContactForm = () => {
         ref={form}
         className={`wrapper ${styles.formContainer}`}
       >
-        <div className={styles.inputBox}>
+        <div className={`${styles.inputBox} ${styles.maxWidth}`}>
           <div className={styles.inputContainer}>
             <label htmlFor="fromName" className={styles.inputLabel}>Name</label>
             <input
@@ -85,19 +86,26 @@ const ContactForm = () => {
           </div>
 
           <div className={styles.inputContainer}>
-            <label htmlFor="fromEmail">Email</label>
-            <input type="text" name="fromEmail" id="fromEmail" />
-            {errors.fromEmail !== "" && <span>{errors.fromEmail}</span>}
+            <label htmlFor="fromEmail" className={styles.inputLabel}>Email</label>
+            <input type="text" name="fromEmail" id="fromEmail" className={`${styles.inputItem} ${
+                errors.fromEmail && styles.borderColorError
+              }`}/>
+            {errors.fromEmail !== "" && <span className={styles.errorField}>{errors.fromEmail}</span>}
           </div>
         </div>
+
+        <div className={`${styles.maxWidth} ${styles.messageWrapper}`}>
         <textarea
           name="subject"
           cols={30}
           rows={10}
-          className={styles.textAreaItem}
+          className={`${styles.textAreaItem} ${styles.inputItem} ${GeistSans.className} ${
+            errors.subject && styles.borderColorError
+          }`}
         />
-        {errors.subject !== "" && <span>{errors.subject}</span>}
+        {errors.subject !== "" && <span className={styles.errorField}>{errors.subject}</span>}
         {SubmitButton()}
+        </div>
       </form>
     </section>
   );

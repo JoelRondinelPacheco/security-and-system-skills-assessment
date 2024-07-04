@@ -1,0 +1,11 @@
+.container {
+    background-color: rgb(var(--background-color));
+    border-top: 2px solid rgb(158, 158, 158);
+}
+
+.wrapper {
+    padding: calc(var(--spacing-base)*5) 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

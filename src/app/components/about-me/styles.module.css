@@ -1,5 +1,6 @@
-.container {
-    background-color: rgb(var(--background-color));
+.container { 
+    background: rgb(84,83,83);
+    background: linear-gradient(270deg, rgba(25,25,25,1) 5%, rgba(14,14,14,1) 40%); 
 }
 
 .wrapper {

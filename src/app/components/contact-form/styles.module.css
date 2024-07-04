@@ -4,7 +4,7 @@
     gap: calc(var(--spacing-base)*2);
     width: 100%;
     padding: calc(var(--spacing-base)*4);
-    background-color: rgb(var(--background-color));
+    background-color: rgb(var(--background));
 }
 
 .inputContainer {
@@ -17,23 +17,15 @@
     display: flex;
     flex-direction: column;
     gap: calc(var(--spacing-base)*2);
-    width: 100%;
-    max-width: 768px;
-    margin: 0 auto;
 }
 
 .inputItem {
     padding: calc(var(--spacing-base)*2) calc(var(--spacing-base)*4);
     background: transparent;
-    border: 2px solid white;
+    border: 2px solid rgb(var(--border));
     outline: none;
     border-radius: 0;
     font-size: var(--fs-base);
-    /*
-    font size ?
-    color?
-    margin?
-    */
 }
 
 .inputItem::placeholder {
@@ -44,20 +36,32 @@
     font-size: var(--fs-base);
 }
 
-.textAreaItem {
-    resize: none;
+.maxWidth {
     width: 100%;
     max-width: 768px;
     margin: 0 auto;
 }
 
+.messageWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing-base)*2)
+}
+
+.textAreaItem {
+    resize: none;
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+    padding: calc(var(--spacing-base)*4);
+}
+
 .errorField {
-    /*TODO DEFINE REDIN GLOBAL CSS -> DESTRUCTIVE*/
-    color: rgb(255, 98, 98);
+    color: rgb(var(--destructive));
     font-size: var(--fs-sm);
 }
 .borderColorError {
-    border-color:  rgb(255, 98, 98);
+    border-color:  rgb(var(--destructive));
 }
 
 @media (min-width: 640px) {
@@ -72,7 +76,7 @@
 
 @media (min-width: 768px) {
     .container {
-        background-color: rgb(var(--background-color));
+        background-color: rgb(var(--background));
 
     }
 }
