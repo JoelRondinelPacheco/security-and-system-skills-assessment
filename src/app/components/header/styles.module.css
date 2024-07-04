@@ -13,7 +13,10 @@
 .navInfo {
     display: flex;
     align-items: center;
-    gap: calc(var(--spacing-base)*2);
+    gap: calc(var(--spacing-base)*2);    
+}
+.navInfo > h2 {
+    font-size: var(--fs-base);
 }
 
 .profileImageContainer {

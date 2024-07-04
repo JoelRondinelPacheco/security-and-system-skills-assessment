@@ -17,7 +17,7 @@ const Header = async () => {
             <ToggleTheme />
           </div>
         <section className={styles.navInfo}>
-          <h3>{`${user.name} ${user.lastname}`}</h3>
+          <h2>{`${user.name} ${user.lastname}`}</h2>
           <div className={styles.profileImageContainer}></div>
           
         </section>
