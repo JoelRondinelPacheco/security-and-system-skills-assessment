@@ -1,7 +1,7 @@
 :root {
   --background: 140, 200, 255;
   --foreground: 20, 20, 20;
-  
+  --card-icon-color: 0, 90, 190;
   --body-bg: 230, 230, 230; 
 
   --primary: 222.2 47.4% 11.2%;
@@ -24,7 +24,7 @@
   --focus:  30, 30, 30;
 
   --button-hover: 30, 100, 170;
-  --button-border-hover: 30, 100, 170;;
+  --button-border-hover: 30, 100, 170;
 
   --spacing-base: 4px;
   --max-width: 500px;
@@ -53,6 +53,7 @@
   --background: 14, 14, 14;
   --foreground: 255, 255, 255;
 
+  --card-icon-color: 160, 210, 255;
 
   --about-me-bg-start: 25, 25, 25;
   --about-me-bg-end: 14, 14, 14;
