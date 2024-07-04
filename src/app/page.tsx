@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 import AboutMe from './components/about-me/about-me'
-import Interest from './components/interest/interest-card'
 import ContactForm from './components/contact-form/contact-form'
 import AllInterests from './components/interest/all-interests'
 

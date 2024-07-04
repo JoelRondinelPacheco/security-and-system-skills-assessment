@@ -11,14 +11,15 @@ const Header = async () => {
   const user: User = await getDefaultUser(userRepository);
 
   return (
-    <header className={`global-wrapper ${styles.headerWrapper}`}>
-      <nav className={styles.headerNav}>
-        <div>Title</div>
-        <section className={styles.navInfo}>
-          {user.name} {user.lastname}
-          <div>
+    <header className={`container ${styles.headerWrapper}`}>
+      <nav className={`wrapper ${styles.headerNav}`}>
+      <div>
             <ToggleTheme />
           </div>
+        <section className={styles.navInfo}>
+          <h3>{`${user.name} ${user.lastname}`}</h3>
+          <div className={styles.profileImageContainer}></div>
+          
         </section>
       </nav>
     </header>

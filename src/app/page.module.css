@@ -3,10 +3,10 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
   min-height: 100vh;
+  gap: calc(var(--spacing-base)*4)
 }
-
+/*
 .description {
   display: inherit;
   justify-content: inherit;
@@ -108,6 +108,7 @@
   position: relative;
 }
 /* Enable hover only on non-touch devices */
+/*
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
     background: rgba(var(--card-rgb), 0.1);
@@ -123,9 +124,10 @@
   .card:hover span {
     transform: none;
   }
-}
+}*/
 
 /* Mobile */
+/*
 @media (max-width: 700px) {
   .content {
     padding: 4rem;
@@ -201,8 +203,9 @@
     z-index: 1;
   }
 }
-
+*/
 /* Tablet and Smaller Desktop */
+/*
 @media (min-width: 701px) and (max-width: 1120px) {
   .grid {
     grid-template-columns: repeat(2, 50%);
@@ -227,3 +230,4 @@
     transform: rotate(0deg);
   }
 }
+*/

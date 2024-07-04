@@ -1,0 +1,72 @@
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing-base)*2);
+    width: 100%;
+    padding: calc(var(--spacing-base)*4);
+    background-color: rgb(var(--background-color));
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap:var(--spacing-base)
+}
+
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing-base)*2);
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+.inputItem {
+    padding: calc(var(--spacing-base)*2) calc(var(--spacing-base)*4);
+    background: transparent;
+    border: 2px solid white;
+    outline: none;
+    border-radius: 0;
+    /*
+    font size ?
+    color?
+    margin?
+    */
+}
+
+.inputItem::placeholder {
+    color: rgb(197, 197, 197);
+}
+
+.textAreaItem {
+    resize: none;
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+.errorField {
+    /*TODO DEFINE REDIN GLOBAL CSS -> DESTRUCTIVE*/
+    color: rgb(255, 98, 98);
+}
+.borderColorError {
+    border-color:  rgb(255, 98, 98);
+}
+
+@media (min-width: 640px) {
+    .inputBox {
+        flex-direction: row;
+    }
+
+    .inputContainer {
+        flex-grow: 1;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        background-color: rgb(var(--background-color));
+
+    }
+}

@@ -1,19 +1,26 @@
-import React from 'react';
+import React from "react";
 import styles from "./styles.module.css";
 
 const AboutMe = () => {
   return (
-    <section className={styles.wrapper}>
-        <div className={styles.imageWrapper}>
-
-        </div>
+    <section className={`container ${styles.container}`}>
+      <div className={`wrapper ${styles.wrapper}`}>
+        <div className={styles.imageWrapper}></div>
         <div className={styles.aboutMeWrapper}>
-            <h3>Hello!</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quaerat deserunt sint tenetur doloribus aperiam. 
+          <div>
+            <h3 className={styles.title}>Hello! I'm Joel Rondinel Pacheco 👋</h3>
+            <p className={styles.details}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
+              quaerat deserunt sint tenetur doloribus aperiam.
             </p>
+          </div>
+          <div className={styles.buttonWrapper}>
+            <button>Call to action</button>
+          </div>
         </div>
+      </div>
     </section>
-  )
-}
+  );
+};
 
-export default AboutMe
+export default AboutMe;
