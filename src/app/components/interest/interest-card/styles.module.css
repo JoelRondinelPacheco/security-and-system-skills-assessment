@@ -1,10 +1,15 @@
 .container {
-    background-color: rgb(var(--background-color));
+    background-color: rgb(var(--background));
     padding: calc(var(--spacing-base)*4);
     height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.container:hover {
+    background-image: radial-gradient(20% 40%, red 0%, blue 70%);
+  background-position: 20px 30px; /* Move the gradient 20px right and 30px up */
 }
 
 .imageContainer {

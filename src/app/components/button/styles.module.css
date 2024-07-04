@@ -1,11 +1,15 @@
 .button {
-    background: transparent;
+    background-color: transparent;
     outline: none;
     border: 2px solid white;
     padding: calc(var(--spacing-base)*2);
     font-size: var(--fs-base);
+    width: 100%;
+    transition: background-color .25s ease;
 }
 
 .button:hover {
-    cursor: pointer
+    cursor: pointer;
+    background-color: rgb(var(--button-hover)); 
+    
 }

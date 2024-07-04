@@ -1,3 +1,7 @@
+.container {
+    padding-bottom: calc(var(--spacing-base)*4);
+}
+
 .formContainer {
     display: flex;
     flex-direction: column;
@@ -28,6 +32,10 @@
     font-size: var(--fs-base);
 }
 
+.inputItem:focus {
+    border-color: rgb(var(--focus));
+}
+
 .inputItem::placeholder {
     color: rgb(197, 197, 197);
 }
@@ -56,6 +64,13 @@
     padding: calc(var(--spacing-base)*4);
 }
 
+.buttonWrapper {
+    padding-top: calc(var(--spacing-base)*2);
+    width: 70%;
+    max-width: 384px;
+    margin: 0 auto;
+}
+
 .errorField {
     color: rgb(var(--destructive));
     font-size: var(--fs-sm);
@@ -77,6 +92,8 @@
 @media (min-width: 768px) {
     .container {
         background-color: rgb(var(--background));
-
+        padding-bottom: 0;
+        
     }
+
 }

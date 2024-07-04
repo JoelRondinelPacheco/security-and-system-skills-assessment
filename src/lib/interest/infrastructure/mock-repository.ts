@@ -16,6 +16,18 @@ export const createInterestMockRepository = (): InterestRepository => {
                 {
                     title: "Interes 3",
                     description: "Descricpion del interes 3"
+                },
+                {
+                    title: "Interes 3",
+                    description: "Descricpion del interes 3"
+                },
+                {
+                    title: "Interes 3",
+                    description: "Descricpion del interes 3"
+                },
+                {
+                    title: "Interes 3",
+                    description: "Descricpion del interes 3"
                 }
             ]
             return Promise.resolve(interest);

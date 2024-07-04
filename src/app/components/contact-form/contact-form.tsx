@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { SVGProps, useEffect, useRef } from "react";
 import { GeistSans } from 'geist/font/sans';
 import {
   Email,
@@ -11,16 +11,19 @@ import { emailValidation } from "@/lib/mail/application/validation";
 import { Validations } from "@/lib/common/domain/validation";
 import styles from "./styles.module.css";
 import Button from "../button/button";
-
+import SubmitButton from "./submit-button/submit-button";
+/*
 const SubmitButton = () => {
   const { pending } = useFormStatus();
   return (
+    <div>
     <Button disabled={pending} type="submit">
       {pending ? "Loading" : "Send email"}
     </Button>
+    </div>
   );
 };
-
+*/
 const email: Email = {
   fromName: "",
   fromEmail: "",
@@ -104,8 +107,11 @@ const ContactForm = () => {
           }`}
         />
         {errors.subject !== "" && <span className={styles.errorField}>{errors.subject}</span>}
-        {SubmitButton()}
+        <div className={styles.buttonWrapper}>
+        <SubmitButton />
         </div>
+        </div>
+
       </form>
     </section>
   );

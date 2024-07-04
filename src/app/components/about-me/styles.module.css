@@ -42,6 +42,12 @@
     width: 60%;
     max-width: 300px;
 }
+.buttonLabel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: calc(var(--spacing-base)*4)
+}
 
 @media (min-width: 640px) {
     .wrapper {

@@ -19,6 +19,12 @@
 
 @media (min-width: 640px) {
     .wrapper {
-        flex-direction: row;
+        grid-template-columns: repeat(
+            2,
+            minmax(
+                250px,
+                1fr
+            )
+        );
     }
 }

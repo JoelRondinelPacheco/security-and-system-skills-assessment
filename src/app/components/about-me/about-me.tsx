@@ -1,6 +1,12 @@
-import React from "react";
+import React, { SVGProps } from "react";
 import styles from "./styles.module.css";
 import Button from "../button/button";
+
+export function MonoIconsEmail(props?: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 32 32" {...props}><path fill="currentColor" d="M28 6H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2m-2.2 2L16 14.78L6.2 8ZM4 24V8.91l11.43 7.91a1 1 0 0 0 1.14 0L28 8.91V24Z"/></svg>
+  )
+}
 
 const AboutMe = () => {
   return (
@@ -17,7 +23,7 @@ const AboutMe = () => {
           </div>
           <div className={styles.buttonWrapper}>
             <Button>
-              <p>Base</p>
+              <div className={styles.buttonLabel}><span>CONTACT ME</span>{MonoIconsEmail()}</div>
             </Button>
           </div>
         </div>
