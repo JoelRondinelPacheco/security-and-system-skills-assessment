@@ -1,5 +1,15 @@
+.headerWrapper {
+    border-bottom: 2px solid rgb(158, 158, 158);
+    background-color: rgb(var(--background-color));
+}
+
 .headerNav {
     display: flex;
     justify-content: space-between;
-    padding: 8px 0;
+    padding: calc(var(--spacing-base)*4) 0;
+}
+
+.navInfo {
+    display: flex;
+    gap: calc(var(--spacing-base)*2);
 }
