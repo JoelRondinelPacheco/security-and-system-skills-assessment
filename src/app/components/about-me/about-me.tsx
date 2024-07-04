@@ -23,7 +23,7 @@ const AboutMe = () => {
           </div>
           <div className={styles.buttonWrapper}>
             <Button>
-              <div className={styles.buttonLabel}><span>CONTACT ME</span>{MonoIconsEmail()}</div>
+              <div className={styles.buttonLabel}><span>CONTACT ME</span><span className={styles.buttonIcon}>{MonoIconsEmail()}</span></div>
             </Button>
           </div>
         </div>

@@ -49,6 +49,28 @@
     gap: calc(var(--spacing-base)*4)
 }
 
+.buttonIcon {
+    padding-top: calc(var(--spacing-base)/2);
+    transition: transform 0.2s ease;
+}
+
+.buttonWrapper button:hover .buttonIcon {
+    transform: rotate(5deg); /* Rotate the icon on hover */
+    animation: oscillate 0.4s ease-in infinite alternate; /* Add oscillation animation */
+  }
+  @keyframes oscillate {
+    0% {
+      transform: rotate(5deg);
+    }
+    50% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(5deg);
+    }
+  }
+  
+
 @media (min-width: 640px) {
     .wrapper {
         flex-direction: row;

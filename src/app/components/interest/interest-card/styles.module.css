@@ -7,11 +7,6 @@
     justify-content: space-between;
 }
 
-.container:hover {
-    background-image: radial-gradient(20% 40%, red 0%, blue 70%);
-  background-position: 20px 30px; /* Move the gradient 20px right and 30px up */
-}
-
 .imageContainer {
     width: 40px;
     height: 40px;
