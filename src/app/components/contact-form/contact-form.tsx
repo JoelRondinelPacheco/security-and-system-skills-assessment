@@ -5,25 +5,13 @@ import {
   Email,
 } from "@/lib/mail/domain/mail";
 import { sendEmail } from "@/lib/actions";
-import { useFormStatus, useFormState } from "react-dom";
+import { useFormState } from "react-dom";
 import useFormValidation from "@/app/hooks/useFormValidation";
 import { emailValidation } from "@/lib/mail/application/validation";
 import { Validations } from "@/lib/common/domain/validation";
 import styles from "./styles.module.css";
-import Button from "../button/button";
 import SubmitButton from "./submit-button/submit-button";
-/*
-const SubmitButton = () => {
-  const { pending } = useFormStatus();
-  return (
-    <div>
-    <Button disabled={pending} type="submit">
-      {pending ? "Loading" : "Send email"}
-    </Button>
-    </div>
-  );
-};
-*/
+
 const email: Email = {
   fromName: "",
   fromEmail: "",
@@ -81,7 +69,6 @@ const ContactForm = () => {
               className={`${styles.inputItem} ${
                 errors.fromName && styles.borderColorError
               }`}
-              placeholder="input name"
             />
             {errors.fromName !== "" && (
               <span className={styles.errorField}>{errors.fromName}</span>

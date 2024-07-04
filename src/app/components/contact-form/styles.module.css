@@ -26,22 +26,20 @@
 .inputItem {
     padding: calc(var(--spacing-base)*2) calc(var(--spacing-base)*4);
     background: transparent;
-    border: 2px solid rgb(var(--border));
+    border: 3px solid rgb(var(--border));
     outline: none;
     border-radius: 0;
     font-size: var(--fs-base);
+    color: rgb(var(--foreground))
 }
 
 .inputItem:focus {
     border-color: rgb(var(--focus));
 }
 
-.inputItem::placeholder {
-    color: rgb(197, 197, 197);
-}
-
 .inputLabel {
     font-size: var(--fs-base);
+    font-weight: 500;
 }
 
 .maxWidth {
@@ -74,6 +72,7 @@
 .errorField {
     color: rgb(var(--destructive));
     font-size: var(--fs-sm);
+    font-weight: 500;
 }
 .borderColorError {
     border-color:  rgb(var(--destructive));
@@ -93,7 +92,15 @@
     .container {
         background-color: rgb(var(--background));
         padding-bottom: 0;
-        
     }
+
+
+.formContainer {
+    gap: calc(var(--spacing-base)*4);
+}
+
+.inputBox {
+    gap: calc(var(--spacing-base)*4);
+}
 
 }

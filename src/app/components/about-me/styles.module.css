@@ -1,6 +1,6 @@
 .container { 
     background: rgb(84,83,83);
-    background: linear-gradient(270deg, rgba(25,25,25,1) 5%, rgba(14,14,14,1) 40%); 
+    background: linear-gradient(270deg, rgb(var(--about-me-bg-start)) 5%, rgb(var(--about-me-bg-end)) 40%); 
 }
 
 .wrapper {

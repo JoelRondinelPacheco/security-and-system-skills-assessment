@@ -1,5 +1,5 @@
 .headerWrapper {
-    border-bottom: 3px solid rgb(var(--border));
+    border-bottom: 3px solid rgb(var(--separator));
     background-color: rgb(var(--background));
 }
 

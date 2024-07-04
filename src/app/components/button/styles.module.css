@@ -1,15 +1,18 @@
 .button {
     background-color: transparent;
     outline: none;
-    border: 2px solid white;
+    border: 3px solid rgb(var(--border));
     padding: calc(var(--spacing-base)*2);
     font-size: var(--fs-base);
     width: 100%;
     transition: background-color .25s ease;
+    color: rgb(var(--foreground));
+    font-weight: 500;
 }
 
 .button:hover {
     cursor: pointer;
     background-color: rgb(var(--button-hover)); 
-    
+    border-color: rgb(var(--button-border-hover));
+    color: rgb(var(--background));
 }

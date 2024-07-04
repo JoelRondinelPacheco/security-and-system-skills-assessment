@@ -1,6 +1,6 @@
 .container {
     background-color: rgb(var(--background-color));
-    border-top: 2px solid rgb(158, 158, 158);
+    border-top: 3px solid rgb(var(--separator));
 }
 
 .wrapper {

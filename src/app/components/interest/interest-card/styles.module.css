@@ -8,10 +8,9 @@
 }
 
 .imageContainer {
-    width: 40px;
-    height: 40px;
-    background-color: rgb(202, 57, 57);
     align-self: self-end;
+    font-size: var(--fs-xxl);
+    padding: calc(var(--spacing-base)*4);
 }
 
 
