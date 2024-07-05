@@ -4,6 +4,7 @@ import { validationFunction } from "./common/application/validation";
 import { emailValidation } from "./mail/application/validate-email-use-case";
 import { createEmailMockSender } from "./mail/infrastructure/emailMockSender";
 import { sendMockEmailUseCase } from "./mail/application/send-mock-email-use-case";
+import { revalidatePath } from "next/cache";
 
 
 export const sendEmail = async (prevState: Partial<Record<keyof Email, string>>, email: FormData) => {
@@ -20,12 +21,12 @@ export const sendEmail = async (prevState: Partial<Record<keyof Email, string>>,
         try {
             const email = await sendEmailUseCase.send(formData);
             console.log("enviando")
-            return {}
+            return {};
         } catch (e) {
-            return {}
+            return { subject: "Error"}
         }
     } else {
-        return Promise.resolve(errors);
+        return errors;
     }
     /*
     console.log("recibio");

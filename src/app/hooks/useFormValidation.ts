@@ -17,6 +17,7 @@ const useFormValidation = <T>(initialState: T) => {
   ) => {
     const err = validate(validations, data);
     setErrors(err);
+    return err;
   };
 
   const onChangeValidation = (
@@ -34,7 +35,11 @@ const useFormValidation = <T>(initialState: T) => {
     });
   };
 
-  return { validation, errors, setErrors, formData, onChangeValidation };
+  const reset = (initialState: T) => {
+    setFormData(initialState)
+  }
+
+  return { validation, errors, setErrors, formData, onChangeValidation, reset };
 };
 
 export default useFormValidation;

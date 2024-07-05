@@ -3,6 +3,7 @@ import styles from "./styles.module.css"
 
 interface ButtonProps {
     children: React.ReactNode,
+    error?: boolean
     disabled?: boolean,
     type?: "submit"
 
