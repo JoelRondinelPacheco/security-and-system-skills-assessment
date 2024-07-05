@@ -10,9 +10,7 @@ export interface EmailValidation {
 
 export const ensureEmailIsValid = ({fromName, fromEmail, subject}: Email) => {
     ensureIsFromNameValid(fromName);
-
     ensureIsFromEmailValid(fromEmail);
-
     ensureIsSubjectValid(subject);
 }
 

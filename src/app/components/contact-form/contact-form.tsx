@@ -9,10 +9,9 @@ import { useFormState, useFormStatus } from "react-dom";
 import useFormValidation from "@/app/hooks/useFormValidation";
 import { Validations } from "@/lib/common/domain/validation";
 import styles from "./styles.module.css";
-//import SubmitButton from "./submit-button/submit-button";
 import { emailValidation } from "@/lib/mail/application/validate-email-use-case";
-import Button from "../button/button";
 import { errorIcon, loadingIcon, sendIcon, successIcon } from "./icons";
+import Button from "@/app/components/button/button";
 
 const email: Email = {
   fromName: "",
@@ -54,7 +53,6 @@ const ContactForm = () => {
       setFormState(prev => ({...prev, tried: true, success: false, error: false}))
 
       if (Object.keys(err).length === 0) {
-        //setFormState(prev => {...prev, pending: true, success: false})
         setFormState(prev => ({...prev, pending: true, success: false}))
         let formData = new FormData(form.current);
         formAction(formData);
