@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./styles.module.css";
 import ToggleTheme from "../toggle-theme/toggle-theme";
-import { getDefaultUser } from "@/lib/user/application/getDefaultUserUseCase";
 import { User } from "@/lib/user/domain/user";
 import { createUserMockRepository } from "@/lib/user/infrastructure/mock-repository";
+import { getDefaultUser } from "@/lib/user/application/get-default-user-use-case";
 
 const userRepository = createUserMockRepository();
 

@@ -87,6 +87,22 @@
     border-color:  rgb(var(--destructive));
 }
 
+.submitButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: calc(var(--spacing-base)*4)
+}
+
+.submitIcon {
+    padding-top: var(--spacing-base);
+    transition: transform 0.2s ease; /* Add transition for smooth animation */
+  }
+  
+  .submitButton:hover .submitIcon {
+    transform: translateX(5px); /* Move the icon 10px to the right on hover */
+  }
+
 @media (min-width: 640px) {
     .inputBox {
         flex-direction: row;

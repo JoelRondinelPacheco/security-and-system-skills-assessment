@@ -16,6 +16,7 @@ const SubmitButton = () => {
 
   return (
     <div className={styles.container}>
+      <p>{pending ? "Loading" : "SEND"}</p>
     <Button disabled={pending} type="submit">
       <div className={styles.wrapper}><span>{pending ? "Loading" : "SEND"}</span><span className={styles.icon}>{IconoirSend()}</span></div>
     </Button>
