@@ -1,0 +1,47 @@
+.button {
+    outline: none;
+    padding: calc(var(--spacing-base));
+    font-size: var(--fs-base);
+    width: 100%;
+    transition: background-color .25s ease;
+    font-weight: 500;
+    border-radius: var(--spacing-base);
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.default {
+    background-color: transparent;
+    border: 2px solid rgb(var(--border));
+    color: rgb(var(--border));
+}
+
+.buttonSuccess {
+    outline: none;
+    background-color: rgb(var(--success));
+    border: 2px solid rgb(var(--success));
+    color: rgb(var(--body-bg));
+}
+.buttonSuccess:hover {
+    background-color: rgb(var(--success-hover));
+    border-color: rgb(var(--success-hover));
+}
+.buttonDestructive {
+    background-color: rgb(var(--destructive));
+    border-color: rgb(var(--destructive));
+    color: rgb(var(--body-bg))
+}
+
+.default:hover {
+    background-color: rgb(var(--button-hover)); 
+    border-color: rgb(var(--button-border-hover));
+    color: rgb(var(--body-bg));
+}
+
+@media (min-width: 768px) {
+    .button {
+        padding: calc(var(--spacing-base)*2);
+    }
+}

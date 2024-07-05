@@ -1,6 +1,48 @@
 :root {
-  --foreground-color: 0, 0, 0;
-  --background-color: 255, 255, 255;
+  --background: 140, 200, 255;
+  --foreground: 20, 20, 20;
+  --body-bg: 230, 230, 230; 
+
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+
+
+  --destructive: 240, 70, 65;
+  --destructive-foreground: 210 40% 98%;
+
+  --success: 40, 150, 40;
+  --success-hover: 60, 160, 60;
+
+  --border: 0, 90, 190;
+  --input: 214.3 36% 75%;
+  --focus:  230, 230, 230;
+
+  --button-hover: 30, 100, 170;
+  --button-border-hover: 30, 100, 170;
+
+  --spacing-base: 4px;
+  --max-width: 500px;
+
+  --card-icon-color: 0, 90, 190;
+  --card-hover: 50, 150, 255, 0.8;
+  --card-border: 50, 150, 255;
+
+
+  --about-me-bg-start:50, 150, 255;
+  --about-me-bg-end: 140, 200, 255;
+  --separator: 50, 150, 255;
+
+
+  --fs-sm: clamp(0.91rem, 0.15vi + 0.87rem, 0.99rem);
+  --fs-base: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
+  --fs-md: clamp(1.1rem, 0.59vi + 0.95rem, 1.43rem);
+  --fs-lg: clamp(1.21rem, 0.91vi + 0.98rem, 1.71rem);
+  --fs-xl: clamp(1.33rem, 1.31vi + 1rem, 2.05rem);
+  --fs-xxl: clamp(1.46rem, 1.82vi + 1.01rem, 2.46rem);
+  --fs-xxxl: clamp(1.61rem, 2.44vi + 1rem, 2.95rem);
 }
 
 * {
@@ -10,16 +52,34 @@
 }
 
 [data-theme='dark'] {
-  --foreground-color: 255, 255, 255;
-  --background-color: 0, 0, 0;
+  --background: 14, 14, 14;
+  --foreground: 255, 255, 255;
+
+  --card-icon-color: 160, 210, 255;
+
+  --about-me-bg-start: 25, 25, 25;
+  --about-me-bg-end: 14, 14, 14;
+
+
+  --border: 200, 200, 200;
+  --input: 214.3 36% 75%;
+  --focus:  100, 140, 255;
+
+  --button-hover: 200, 200, 200;
+  --button-border-hover: 200, 200, 200;
+  
+  --body-bg: 30, 30, 30;
+  
+  --card-hover: 30, 30, 30, 0.6;
+  --card-border: 14, 14, 14;
+
+  --separator: 200, 200, 200;
 }
 
 body {
-  color: rgb(var(--foreground-color));
-  background-color: rgb(var(--background-color));
+  background-color: rgb(var(--body-bg));
+  color: rgb(var(--foreground));
 }
-
-
 
 @media (prefers-color-scheme: dark) {
   html {
@@ -33,24 +93,53 @@ body {
   overflow-x: hidden;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  gap: calc(var(--spacing-base)*4)
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
+/*todo eliminar padding en resolucioens mas grandes*/
+.container {
+  width: 100%;
+  padding: 0 calc(var(--spacing-base)*4);
+}
 
-.global-wrapper {
-  padding: 0 16px;
+.wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
 @media (min-width: 480px) {
 
 }
 
+@media (min-width: 640px) {
+  :root {
+    --max-width: 780px;
+  }
+  main {
+    gap: calc(var(--spacing-base)*8)
+  }
+}
+
 @media (min-width: 768px) {
   
 }
 
-@media (min-width: 1280px) {
-  
+@media (min-width: 1024px) {
+  :root {
+    --max-width: 1280px;
+  }
+  main {
+    gap: calc(var(--spacing-base)*8)
+  }
 }
