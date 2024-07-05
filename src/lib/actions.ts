@@ -20,10 +20,9 @@ export const sendEmail = async (prevState: Partial<Record<keyof Email, string>>,
     if (Object.keys(errors).length === 0) {
         try {
             const email = await sendEmailUseCase.send(formData);
-            console.log("enviando")
             return {};
-        } catch (e) {
-            return { subject: "Error"}
+        } catch (e: any) {
+            return { subject: "Error: " + e.message}
         }
     } else {
         return errors;

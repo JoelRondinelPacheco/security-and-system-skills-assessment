@@ -9,14 +9,12 @@
   --secondary: 210 40% 96.1%;
   --secondary-foreground: 222.2 47.4% 11.2%;
 
-  --muted: 210 40% 80%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
 
   --destructive: 240, 70, 65;
   --destructive-foreground: 210 40% 98%;
+
+  --success: 40, 150, 40;
+  --success-hover: 60, 160, 60;
 
   --border: 0, 90, 190;
   --input: 214.3 36% 75%;
@@ -36,7 +34,8 @@
   --about-me-bg-start:50, 150, 255;
   --about-me-bg-end: 140, 200, 255;
   --separator: 50, 150, 255;
-  /*Font sizes*/
+
+
   --fs-sm: clamp(0.91rem, 0.15vi + 0.87rem, 0.99rem);
   --fs-base: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
   --fs-md: clamp(1.1rem, 0.59vi + 0.95rem, 1.43rem);
@@ -127,6 +126,9 @@ a {
   :root {
     --max-width: 780px;
   }
+  main {
+    gap: calc(var(--spacing-base)*8)
+  }
 }
 
 @media (min-width: 768px) {
@@ -136,5 +138,8 @@ a {
 @media (min-width: 1024px) {
   :root {
     --max-width: 1280px;
+  }
+  main {
+    gap: calc(var(--spacing-base)*8)
   }
 }

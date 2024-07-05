@@ -12,6 +12,7 @@ import styles from "./styles.module.css";
 //import SubmitButton from "./submit-button/submit-button";
 import { emailValidation } from "@/lib/mail/application/validate-email-use-case";
 import Button from "../button/button";
+import { errorIcon, loadingIcon, sendIcon, successIcon } from "./icons";
 
 const email: Email = {
   fromName: "",
@@ -19,23 +20,13 @@ const email: Email = {
   subject: "",
 };
 
-export function IconoirSend(props?: SVGProps<SVGSVGElement>) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}><path fill="currentColor" d="M.292 1.665L24.002 12L.293 22.336L3.94 12zM5.708 13l-2 5.665L18.999 12L3.708 5.336l2 5.664H11v2z"/></svg>
-  )
-}
-
-export function loadingIcon(props?: SVGProps<SVGSVGElement>) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}><path fill="none" stroke="currentColor" strokeDasharray="15" strokeDashoffset="15" strokeLinecap="round" strokeWidth="2" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></svg>
-  )
-}
 
 
 type FormState = {
   pending: boolean,
   error: boolean,
-  success: boolean | null
+  success: boolean | null,
+  tried: boolean,
 }
 
 const ContactForm = () => {
@@ -43,11 +34,9 @@ const ContactForm = () => {
   const [formState, setFormState] = useState<FormState>({
     pending: false,
     error: false,
-    success: null
+    success: null,
+    tried: false,
   })
-  const [pending, setPending] = useState(false);
-  const [error, setError] = useState(false);
-  const [success, setSuccess] = useState<boolean | null>(null);
   const [state, formAction] = useFormState<
     Partial<Record<keyof Email, string>>,
     FormData
@@ -59,14 +48,14 @@ const ContactForm = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   
-    if (form.current && !pending) {
+    if (form.current && !formState.pending) {
       const err =validation(emailValidations, formData);
+      setErrors(err);
+      setFormState(prev => ({...prev, tried: true, success: false, error: false}))
 
       if (Object.keys(err).length === 0) {
         //setFormState(prev => {...prev, pending: true, success: false})
         setFormState(prev => ({...prev, pending: true, success: false}))
-        setPending(true);
-        setSuccess(false);
         let formData = new FormData(form.current);
         formAction(formData);
       }
@@ -74,8 +63,8 @@ const ContactForm = () => {
   };
 
   const handleOnChangeForm = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    if (success) setSuccess(false);
-    if (formState.success) setFormState(prev => ({...prev, success: false})) //o null
+    if (formState.success) setFormState(prev => ({...prev, success: false}))
+    if (formState.error) setFormState(prev => ({...prev, error: false}))
     onChangeValidation(e, emailValidations)
   }
 
@@ -87,31 +76,25 @@ const ContactForm = () => {
       return {
       error: !isOk,
       pending: false,
-      success: newSuccess
+      success: newSuccess,
+      tried: false
       }
     })
     setErrors(state);
-/*
-    console.log("cambio")
     if (isOk) {
-      setSuccess(prev => {
-        if (prev === null) {
-          console.log("Es null")
-          return null;
-        } else {
-        return isOk
-        }
-      })
       reset(email);
+    } else {
+      if (state.subject?.startsWith("Error")) {
+
+      }
     }
-    setError(!isOk)
-    setPending(false);
-    setErrors(state);*/
   }, [state]);
 
   return (
     <section className={`container ${styles.container}`}>
+      <div className={`wrapper ${styles.titleWrapper}`}>
       <h3 className={`${styles.maxWidth} ${styles.formTitle}`}>Send me a message!</h3>
+      </div>
       <form
         onSubmit={handleSubmit}
         ref={form}
@@ -126,12 +109,13 @@ const ContactForm = () => {
               name="fromName"
               id="fromName"
               className={`${styles.inputItem} ${
-                errors.fromName && styles.borderColorError
+                (errors.fromName && formState.tried) && styles.borderColorError
               }`}
+              value={formData.fromName}
               onChange={handleOnChangeForm}
-              disabled={pending}
+              disabled={formState.pending}
             />
-            {errors.fromName !== "" && (
+            {(errors.fromName !== "" && formState.tried) && (
               <span className={styles.errorField}>{errors.fromName}</span>
             )}
           </div>
@@ -139,12 +123,13 @@ const ContactForm = () => {
           <div className={styles.inputContainer}>
             <label htmlFor="fromEmail" className={styles.inputLabel}>Email</label>
             <input type="text" name="fromEmail" id="fromEmail" className={`${styles.inputItem} ${
-                errors.fromEmail && styles.borderColorError
+                (errors.fromEmail && formState.tried) && styles.borderColorError
               }`}
+              value={formData.fromEmail}
               onChange={handleOnChangeForm}
-              disabled={pending}
+              disabled={formState.pending}
               />
-            {errors.fromEmail !== "" && <span className={styles.errorField}>{errors.fromEmail}</span>}
+            {(errors.fromEmail !== "" && formState.tried) && <span className={styles.errorField}>{errors.fromEmail}</span>}
           </div>
         </div>
 
@@ -154,35 +139,33 @@ const ContactForm = () => {
           cols={30}
           rows={10}
           className={`${styles.textAreaItem} ${styles.inputItem} ${GeistSans.className} ${
-            errors.subject && styles.borderColorError
+            (errors.subject && formState.tried) && styles.borderColorError
           }`}
           onChange={handleOnChangeForm}
-          disabled={pending}
+          disabled={formState.pending}
+          value={formData.subject}
           />
-        {errors.subject !== "" && <span className={styles.errorField}>{errors.subject}</span>}
-        <div className={styles.buttonWrapper}>
-        {/*<SubmitButton />*/}
-        <Button disabled={pending} type="submit">
-          <div className={styles.submitButton}>
-            <span>{pending ? "LOADING" : "SEND"}</span>
-            { !pending &&
-              <span className={styles.submitIcon}>{IconoirSend()}</span>
-            }
-            {
-              pending &&
-              <span>{loadingIcon()}</span>
-            }
-            </div>
-        </Button>
-        { error &&
-        <Button>
-        error
-        </Button>
-        }
         {
-           <span>{success === null ? "null success" : success === false ? "false success" : "true succ"}</span>
+        (errors.subject !== "" && formState.tried) && <span className={styles.errorField}>{errors.subject}</span>
         }
-        </div>
+        {(formState.error) && <span className={`${styles.errorField} ${styles.errorFromService}`}>{state.subject}</span>}
+
+        <div className={`${styles.buttonWrapper}`}>
+        <Button
+        disabled={formState.pending}
+        type="submit"
+        variant={formState.error ? "destructive" : formState.success ? "success" : formState.pending ? "default" : "default"}
+        >
+          {
+            formState.pending
+              ? <div><span>LOADING</span><span className={styles.loadingIcon}>{loadingIcon()}</span></div>
+              : formState.error ? <div><span>ERROR</span><span className={styles.errorIcon}>{errorIcon()}</span></div>
+              : formState.success ? <div><span>MAIL SENDED</span><span className={styles.successIcon}>{successIcon()}</span></div>
+              :  <div><span>SEND</span><span className={styles.submitIcon}>{sendIcon()}</span></div>
+
+          }         
+        </Button>
+        </div>    
         </div>
 
       </form>

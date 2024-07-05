@@ -6,33 +6,33 @@ export const createInterestMockRepository = (): InterestRepository => {
         getAll: () => {
             const interest: Interest[] = [
                 {
-                    title: "Interes 1",
-                    description: "Descricpion del interes 1",
+                    title: "React",
+                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut, dignissimos cupiditate.",
                     icon: "react",
                 },
                 {
-                    title: "Interes 2",
-                    description: "Descricpion del interes 2",
+                    title: "NextJS",
+                    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
                     icon: "next",
                 },
                 {
-                    title: "Interes 3",
-                    description: "Descricpion del interes 3",
+                    title: "TypeScript",
+                    description: "Laborum, nisi vel qui repudiandae nesciunt iusto, eveniet tempora quis sequi aliquid quasi molestiae ut.",
                     icon: "typescript",
                 },
                 {
-                    title: "Interes 3",
-                    description: "Descricpion del interes 3",
+                    title: "JavaScript",
+                    description: "Consequatur neque minus dicta, atque nam reiciendis.",
                     icon: "javascript",
                 },
                 {
-                    title: "Interes 3",
-                    description: "Descricpion del interes 3",
+                    title: "CSS",
+                    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
                     icon: "css",
                 },
                 {
-                    title: "Interes 3",
-                    description: "Descricpion del interes 3",
+                    title: "Docker",
+                    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
                     icon: "docker",
                 }
             ]

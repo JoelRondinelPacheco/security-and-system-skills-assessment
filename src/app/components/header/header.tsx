@@ -4,6 +4,8 @@ import ToggleTheme from "../toggle-theme/toggle-theme";
 import { User } from "@/lib/user/domain/user";
 import { createUserMockRepository } from "@/lib/user/infrastructure/mock-repository";
 import { getDefaultUser } from "@/lib/user/application/get-default-user-use-case";
+import Image from "next/image";
+import image from '../../../../public/profile-pic.png'
 
 const userRepository = createUserMockRepository();
 
@@ -18,8 +20,11 @@ const Header = async () => {
           </div>
         <section className={styles.navInfo}>
           <h2>{`${user.name} ${user.lastname}`}</h2>
-          <div className={styles.profileImageContainer}></div>
-          
+          <div className={styles.profileImageContainer}><Image
+          src={image}
+          fill
+          alt="Profile picture"
+          /></div>
         </section>
       </nav>
     </header>
