@@ -83,11 +83,7 @@ const ContactForm = () => {
     setErrors(state);
     if (isOk) {
       reset(email);
-    } else {
-      if (state.subject?.startsWith("Error")) {
-
-      }
-    }
+    } 
   }, [state]);
 
   return (
