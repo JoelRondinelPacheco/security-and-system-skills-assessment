@@ -34,7 +34,7 @@ const AboutMe = () => {
         </div>
         <div className={styles.aboutMeWrapper}>
           <div>
-            <h3 className={styles.title}>Hello! I'm Joel Rondinel Pacheco 👋</h3>
+            <h3 className={styles.title}>Hello! I`&apos;`m Joel Rondinel Pacheco 👋</h3>
             <p className={styles.details}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
               quaerat deserunt sint tenetur doloribus aperiam.
