@@ -2,6 +2,8 @@
 import React, { SVGProps } from "react";
 import styles from "./styles.module.css";
 import Button from "../button/button";
+import image from "../../../../public/profile.jpg";
+import Image from "next/image";
 
 export function MonoIconsEmail(props?: SVGProps<SVGSVGElement>) {
   return (
@@ -21,7 +23,15 @@ const AboutMe = () => {
   return (
     <section className={`container ${styles.container}`}>
       <div className={`wrapper ${styles.wrapper}`}>
-        <div className={styles.imageWrapper}></div>
+        <div className={styles.imageWrapper}>
+          <Image
+
+            src={image}
+            alt="Profile picture"
+            fill
+            style={{objectFit: "cover"}}
+          />
+        </div>
         <div className={styles.aboutMeWrapper}>
           <div>
             <h3 className={styles.title}>Hello! I&aposm Joel Rondinel Pacheco 👋</h3>
