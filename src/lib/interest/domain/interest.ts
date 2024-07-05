@@ -1,4 +1,5 @@
 export interface Interest {
     title: string,
-    description: string
+    description: string,
+    icon: string,
 }

@@ -1,9 +1,112 @@
+.container { 
+    background: rgb(84,83,83);
+    background: linear-gradient(270deg, rgb(var(--about-me-bg-start)) 5%, rgb(var(--about-me-bg-end)) 40%); 
+}
+
 .wrapper {
     display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing-base) * 4);
+    padding: calc(var(--spacing-base) * 4) 0;
 }
+
 .imageWrapper {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     background-color: rgb(141, 82, 82);
-    border-radius: 50%;
+    margin: calc(var(--spacing-base)) auto;
+    position: relative;
+    border-radius: calc(var(--spacing-base)*2);
+    overflow: hidden;
+}
+
+.aboutMeWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: calc(var(--spacing-base)*4);
+    /*padding: 0 calc(var(--spacing-base)*4);*/
+}
+
+.title {
+    padding-bottom: calc(var(--spacing-base));
+    font-size: var(--fs-lg);
+}
+
+.details {
+    padding-bottom: calc(var(--spacing-base)*2);
+    font-size: var(--fs-md);
+}
+
+.buttonWrapper {
+    text-align: center;
+}
+.buttonWrapper button {
+    width: 60%;
+    max-width: 300px;
+}
+.buttonLabel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: calc(var(--spacing-base)*4)
+}
+
+.buttonIcon {
+    padding-top: calc(var(--spacing-base)/2);
+    transition: transform 0.2s ease;
+}
+
+.buttonWrapper button:hover .buttonIcon {
+    transform: rotate(5deg); /* Rotate the icon on hover */
+    animation: oscillate 0.4s ease-in infinite alternate; /* Add oscillation animation */
+  }
+  @keyframes oscillate {
+    0% {
+      transform: rotate(5deg);
+    }
+    50% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(5deg);
+    }
+  }
+  
+
+@media (min-width: 640px) {
+    .wrapper {
+        flex-direction: row;
+        gap: calc(var(--spacing-base) * 8);
+        padding: calc(var(--spacing-base) * 16) calc(var(--spacing-base) * 8);
+    }
+
+    .imageWrapper {
+        width: 150px;
+        min-width: 150px;
+        height: 150px;
+        background-color: rgb(141, 82, 82);
+        margin: 0;
+    }
+    
+    .buttonWrapper {
+        text-align: left;
+    }
+}
+
+@media (min-width: 768px) {
+    .imageWrapper {
+        width: 250px;
+        min-width: 250px;
+        height: 250px;
+    }
+    .aboutMeWrapper {
+        justify-content: center;
+        gap: calc(var(--spacing-base)*4);
+        /*padding: 0 calc(var(--spacing-base)*4);*/
+    }
+    
+}
+
+@media (min-width: 1024px) {
 }

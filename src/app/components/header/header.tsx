@@ -1,29 +1,34 @@
-import React from 'react'
+import React from "react";
 import styles from "./styles.module.css";
-import ToggleTheme from '../toggle-theme/toggle-theme';
-import { getDefaultUser } from '@/lib/user/application/getDefaultUserUseCase';
-import { User } from '@/lib/user/domain/user';
-import { createUserMockRepository } from '@/lib/user/infrastructure/mock-repository';
+import ToggleTheme from "../toggle-theme/toggle-theme";
+import { User } from "@/lib/user/domain/user";
+import { createUserMockRepository } from "@/lib/user/infrastructure/mock-repository";
+import { getDefaultUser } from "@/lib/user/application/get-default-user-use-case";
+import Image from "next/image";
+import image from '../../../../public/profile-pic.png'
 
 const userRepository = createUserMockRepository();
 
 const Header = async () => {
-
   const user: User = await getDefaultUser(userRepository);
 
   return (
-    <header className={`global-wrapper`}>
-        <nav className={styles.headerNav}>
-            <section>
-                Title
-            </section>
-            <section>
-                {user.name} {user.lastname}
-                <ToggleTheme />
-            </section>
-        </nav>
+    <header className={`container ${styles.headerWrapper}`}>
+      <nav className={`wrapper ${styles.headerNav}`}>
+      <div>
+            <ToggleTheme />
+          </div>
+        <section className={styles.navInfo}>
+          <h2>{`${user.name} ${user.lastname}`}</h2>
+          <div className={styles.profileImageContainer}><Image
+          src={image}
+          fill
+          alt="Profile picture"
+          /></div>
+        </section>
+      </nav>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

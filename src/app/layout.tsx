@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from './components/header/header'
@@ -20,12 +22,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={GeistSans.className}>
         <ThemeContextProvider>
           <ThemeWrapper>
             <Header />  
             {children}
-            <Footer />
+           {/* <Footer />*/}
           </ThemeWrapper>
         </ThemeContextProvider>
       </body>
