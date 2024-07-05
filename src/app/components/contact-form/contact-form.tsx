@@ -24,7 +24,7 @@ const ContactForm = () => {
     Partial<Record<keyof Email, string>>,
     FormData
   >(sendEmail, email);
-  const { validate, errors, setErrors } = useFormValidation<Email>();
+  const { validate, errors, setErrors, formData, onChangeValidation } = useFormValidation<Email>(email);
 
   const emailValidations: Validations<Email> = emailValidation;
 
@@ -33,16 +33,10 @@ const ContactForm = () => {
 
     if (form.current) {
       //validate form structure
-      let formData = new FormData(form.current);
-      let data: Email = {
-        fromEmail: formData.get("fromEmail")?.toString() || "",
-        fromName: formData.get("fromName")?.toString() || "",
-        subject: formData.get("subject")?.toString() || "",
-      };
-
-      validate(emailValidations, data);
+      validate(emailValidations, formData);
 
       if (Object.keys(errors).length === 0) {
+        let formData = new FormData(form.current);
         formAction(formData);
       }
     }
@@ -71,6 +65,7 @@ const ContactForm = () => {
               className={`${styles.inputItem} ${
                 errors.fromName && styles.borderColorError
               }`}
+              onChange={(e) =>onChangeValidation(e, emailValidations)}
             />
             {errors.fromName !== "" && (
               <span className={styles.errorField}>{errors.fromName}</span>
@@ -81,7 +76,8 @@ const ContactForm = () => {
             <label htmlFor="fromEmail" className={styles.inputLabel}>Email</label>
             <input type="text" name="fromEmail" id="fromEmail" className={`${styles.inputItem} ${
                 errors.fromEmail && styles.borderColorError
-              }`}/>
+              }`}
+              onChange={(e) =>onChangeValidation(e, emailValidations)}              />
             {errors.fromEmail !== "" && <span className={styles.errorField}>{errors.fromEmail}</span>}
           </div>
         </div>
@@ -94,7 +90,7 @@ const ContactForm = () => {
           className={`${styles.textAreaItem} ${styles.inputItem} ${GeistSans.className} ${
             errors.subject && styles.borderColorError
           }`}
-        />
+          onChange={(e) =>onChangeValidation(e, emailValidations)}        />
         {errors.subject !== "" && <span className={styles.errorField}>{errors.subject}</span>}
         <div className={styles.buttonWrapper}>
         <SubmitButton />
