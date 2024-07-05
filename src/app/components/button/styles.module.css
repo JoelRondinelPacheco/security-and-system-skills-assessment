@@ -1,18 +1,19 @@
 .button {
     background-color: transparent;
     outline: none;
-    border: 3px solid rgb(var(--border));
+    border: 2px solid rgb(var(--border));
     padding: calc(var(--spacing-base)*2);
     font-size: var(--fs-base);
     width: 100%;
     transition: background-color .25s ease;
-    color: rgb(var(--foreground));
+    color: rgb(var(--border));
     font-weight: 500;
+    border-radius: var(--spacing-base);
 }
 
 .button:hover {
     cursor: pointer;
     background-color: rgb(var(--button-hover)); 
     border-color: rgb(var(--button-border-hover));
-    color: rgb(var(--background));
+    color: rgb(var(--body-bg));
 }

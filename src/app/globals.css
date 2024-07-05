@@ -1,7 +1,6 @@
 :root {
   --background: 140, 200, 255;
   --foreground: 20, 20, 20;
-  --card-icon-color: 0, 90, 190;
   --body-bg: 230, 230, 230; 
 
   --primary: 222.2 47.4% 11.2%;
@@ -19,9 +18,9 @@
   --destructive: 240, 70, 65;
   --destructive-foreground: 210 40% 98%;
 
-  --border: 80, 80, 80;
+  --border: 0, 90, 190;
   --input: 214.3 36% 75%;
-  --focus:  30, 30, 30;
+  --focus:  230, 230, 230;
 
   --button-hover: 30, 100, 170;
   --button-border-hover: 30, 100, 170;
@@ -29,10 +28,14 @@
   --spacing-base: 4px;
   --max-width: 500px;
 
+  --card-icon-color: 0, 90, 190;
+  --card-hover: 50, 150, 255, 0.8;
+  --card-border: 50, 150, 255;
+
 
   --about-me-bg-start:50, 150, 255;
   --about-me-bg-end: 140, 200, 255;
-  --separator: 250, 250, 250;
+  --separator: 50, 150, 255;
   /*Font sizes*/
   --fs-sm: clamp(0.91rem, 0.15vi + 0.87rem, 0.99rem);
   --fs-base: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
@@ -61,12 +64,17 @@
 
   --border: 200, 200, 200;
   --input: 214.3 36% 75%;
-  --focus: 200, 200, 200;
+  --focus:  100, 140, 255;
 
   --button-hover: 200, 200, 200;
   --button-border-hover: 200, 200, 200;
   
   --body-bg: 30, 30, 30;
+  
+  --card-hover: 30, 30, 30, 0.6;
+  --card-border: 14, 14, 14;
+
+  --separator: 200, 200, 200;
 }
 
 body {

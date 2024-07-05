@@ -54,11 +54,13 @@ const ContactForm = () => {
 
   return (
     <section className={`container ${styles.container}`}>
+      <h3 className={`${styles.maxWidth} ${styles.formTitle}`}>Send me a message!</h3>
       <form
         onSubmit={handleSubmit}
         ref={form}
         className={`wrapper ${styles.formContainer}`}
       >
+
         <div className={`${styles.inputBox} ${styles.maxWidth}`}>
           <div className={styles.inputContainer}>
             <label htmlFor="fromName" className={styles.inputLabel}>Name</label>

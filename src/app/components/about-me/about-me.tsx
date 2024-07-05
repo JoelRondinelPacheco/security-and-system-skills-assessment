@@ -1,3 +1,4 @@
+'use client'
 import React, { SVGProps } from "react";
 import styles from "./styles.module.css";
 import Button from "../button/button";
@@ -9,6 +10,14 @@ export function MonoIconsEmail(props?: SVGProps<SVGSVGElement>) {
 }
 
 const AboutMe = () => {
+
+  const handleGoToBottom = () => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth'
+    })
+  }
+
   return (
     <section className={`container ${styles.container}`}>
       <div className={`wrapper ${styles.wrapper}`}>
@@ -21,7 +30,7 @@ const AboutMe = () => {
               quaerat deserunt sint tenetur doloribus aperiam.
             </p>
           </div>
-          <div className={styles.buttonWrapper}>
+          <div className={styles.buttonWrapper} onClick={handleGoToBottom}>
             <Button>
               <div className={styles.buttonLabel}><span>CONTACT ME</span><span className={styles.buttonIcon}>{MonoIconsEmail()}</span></div>
             </Button>
