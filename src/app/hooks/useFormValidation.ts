@@ -1,3 +1,4 @@
+import { validationFunction } from "@/lib/common/application/validation";
 import {
   ValidationFunction,
   Validations,
@@ -7,11 +8,15 @@ import { ChangeEvent, useState } from "react";
 const useFormValidation = <T>(initialState: T) => {
   const [errors, setErrors] = useState<Partial<Record<keyof T, string>>>({});
   const [formData, setFormData] = useState<T>(initialState);
-
-  const validate = (
+  const validate = validationFunction
+  const validation = (
     validations: Validations<T>,
     data: T
-  ): Partial<Record<keyof T, string>> => {
+  ) => {
+
+    const err = validate(validations, data);
+    setErrors(err);
+    /*
     const newErrors: Partial<Record<keyof T, string>> = {};
 
     for (const [field, rule] of Object.entries(validations) as [
@@ -25,7 +30,7 @@ const useFormValidation = <T>(initialState: T) => {
       }
     }
     setErrors(newErrors);
-    return newErrors;
+    return newErrors;*/
   };
 
   const onChangeValidation = (
@@ -35,7 +40,7 @@ const useFormValidation = <T>(initialState: T) => {
     const { name, value } = e.target;
 
     setFormData((prev) => {
-      validate(validations, prev);
+      validation(validations, prev);
       return {
         ...prev,
         [name]: value,
@@ -43,7 +48,7 @@ const useFormValidation = <T>(initialState: T) => {
     });
   };
 
-  return { validate, errors, setErrors, formData, onChangeValidation };
+  return { validation, errors, setErrors, formData, onChangeValidation };
 };
 
 export default useFormValidation;

@@ -24,7 +24,7 @@ const ContactForm = () => {
     Partial<Record<keyof Email, string>>,
     FormData
   >(sendEmail, email);
-  const { validate, errors, setErrors, formData, onChangeValidation } = useFormValidation<Email>(email);
+  const { validation, errors, setErrors, formData, onChangeValidation } = useFormValidation<Email>(email);
 
   const emailValidations: Validations<Email> = emailValidation;
 
@@ -33,7 +33,7 @@ const ContactForm = () => {
 
     if (form.current) {
       //validate form structure
-      validate(emailValidations, formData);
+      validation(emailValidations, formData);
 
       if (Object.keys(errors).length === 0) {
         let formData = new FormData(form.current);
