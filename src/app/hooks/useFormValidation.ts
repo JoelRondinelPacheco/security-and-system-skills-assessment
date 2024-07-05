@@ -9,28 +9,14 @@ const useFormValidation = <T>(initialState: T) => {
   const [errors, setErrors] = useState<Partial<Record<keyof T, string>>>({});
   const [formData, setFormData] = useState<T>(initialState);
   const validate = validationFunction
+
+
   const validation = (
     validations: Validations<T>,
     data: T
   ) => {
-
     const err = validate(validations, data);
     setErrors(err);
-    /*
-    const newErrors: Partial<Record<keyof T, string>> = {};
-
-    for (const [field, rule] of Object.entries(validations) as [
-      keyof T,
-      ValidationFunction
-    ][]) {
-      try {
-        rule(String(data[field]));
-      } catch (e: any) {
-        newErrors[field] = e.message;
-      }
-    }
-    setErrors(newErrors);
-    return newErrors;*/
   };
 
   const onChangeValidation = (

@@ -36,7 +36,9 @@ const ContactForm = () => {
       validation(emailValidations, formData);
 
       if (Object.keys(errors).length === 0) {
+        console.log("Todo ok")
         let formData = new FormData(form.current);
+        console.log(formData)
         formAction(formData);
       }
     }
